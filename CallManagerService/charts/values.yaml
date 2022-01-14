@@ -1,0 +1,12 @@
+image: ${REGISTRY}/callmanagerservice:${VERSION}
+name: callmanagerservice
+port: 14673
+debugport: 8000
+replicas: 1
+apiversion: v1
+configmapenv: my-env
+secretregistry: ${SECRETNAME}
+healthpath: /actuator/health
+serviceaccount: config-reader
+priority: high-priority
+graceperiod: 30

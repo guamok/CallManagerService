@@ -1,0 +1,3 @@
+
+ALTER  TABLE participants
+    ADD MISSED_CALL_TIME        TIMESTAMP NULL;

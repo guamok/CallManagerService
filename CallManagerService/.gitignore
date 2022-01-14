@@ -1,0 +1,32 @@
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/.idea
+/.factorypath
+/data/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+#custom property for local/IDe
+*application-loc.yml
+*application-loc.yaml
+*application-loc.properties
+/bin/
+
+### VS Code ###
+.vscode/
+
+/local_deploy
+
+HELP.md
+/target/
+!.mvn/wrapper/maven-wrapper.jar

@@ -1,0 +1,4 @@
+include:
+  - project: 'sw/Gitlab-CI-Template'
+    ref: master
+    file: '.gitlab-ci-java-template.yml'

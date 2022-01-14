@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: callmanager-service
+  cloud:
+    config:
+      enabled: false
+    kubernetes:
+      reload:
+        enabled: true
+        period: 15000
+        mode: event
+        strategy: refresh
+      config:
+        namespace: default
+        sources:
+          - name: common-bootstrap
+          - name: common-sleuth-zipkin-profile
+          - name: common-logging
+          - name: common-oauth
+          - name: common-swagger
+          - name: common-server-context-path
+          - name: common-services
+          - name: common-service-paths
+          - name: common-management-endpoint
+          - name: common-datasource-jpa
+          - name: common-spring-rabbitmq
+  boot:
+    admin:
+      client:
+        instance:
+          service-url: http://callmanagerservice-service:14673

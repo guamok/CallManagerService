@@ -1,0 +1,63 @@
+server:
+  port: 14673
+  tomcat:
+    max-threads: 30
+    accesslog.enabled: true
+  servlet.context-path: /callmanager
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  data:
+    mongodb:
+      uri: ${COSMOS_URI}
+      database: ${COSMOS_DATABASE}
+      prefix: ${COSMOS_COLLECTIONS_PREFIX}
+
+logging:
+  file:
+    name: "target/CallManagerService-service.log"
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+
+fermaxTracelog:
+  enabled: true
+  path: traceLogger.log
+
+rabbitmq:
+  exchange_name:
+    start-call: start-call
+    ack-notification: ack-notification
+    add-invitee: add-invitee
+    start-ringing: start-ringing
+    missed-call-notification-call-attended: missed-call-notification-call-attended
+    missed-call-notification-call-notattended: missed-call-notification-call-notattended
+
+swagger:
+  host: ${K8S_HOST}/callmanager
+
+notificationservice.host.url: http://localhost:8080/notification
+
+firebase-sdk:
+  keys:
+    path: "/home/fermaxuser/firebase/"
+    file: ${FIREBASE_SDK_KEY:notset}
+    ttl: ${CALL_NOTIFICATION_TIME_TO_LIVE_NUM_SECS:30}
+
+apns:
+  host:
+    production: ${PRODUCTION_APNS_HOST}
+    development: ${DEVELOPMENT_APNS_HOST}
+  teamId: ${APN_TEAMID}
+  keyId: ${APN_KEYID}
+  apnKey: ${APN_KEY}
+  topic: ${APN_TOPIC}
+  invalidationTime: ${INVALIDATION_TIME_APN}
+  deliveryPriority: ${DELIVERY_PRIORITY_APN}
+
+
